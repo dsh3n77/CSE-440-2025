@@ -1,398 +1,90 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="“width=800”">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
-    a {
-    color: #1772d0;
-    text-decoration:none;
-    }
-    a:focus, a:hover {
-    color: #f09228;
-    text-decoration:none;
-    }
-    body,td,th,tr,p,a {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px
-    }
-    strong {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
-    }
-    heading {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 22px;
-    }
-    papertitle {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 700
-    }
-    name {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 32px;
-    }
-    .one
-    {
-    width: 160px;
-    height: 160px;
-    position: relative;
-    }
-    .two
-    {
-    width: 160px;
-    height: 160px;
-    position: absolute;
-    transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
-    -webkit-transition: opacity .2s ease-in-out;
-    }
-    .fade {
-     transition: opacity .2s ease-in-out;
-     -moz-transition: opacity .2s ease-in-out;
-     -webkit-transition: opacity .2s ease-in-out;
-    }
-    span.highlight {
-        background-color: #ffffd0;
-    }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSE 440 (Fall 2025)</title>
+  <style>
+    body { font-family: 'Lato', Verdana, Helvetica, sans-serif; font-size:14px; line-height:1.6; margin:0; }
+    main { max-width: 850px; margin: 0 auto; padding: 20px; }
+    a { color:#1772d0; text-decoration:none; }
+    a:hover, a:focus { color:#f09228; }
+    strong { font-weight:700; }
+    name, heading, papertitle { display:block; }
+    name { font-size:32px; margin:16px 0; text-align:center; }
+    heading { font-size:22px; margin:18px 0 6px; color:#000080; }
+    .nav { text-align:center; border-top:1px solid #000; border-bottom:1px solid #000; padding:10px 0; margin:10px 0 20px; }
+    .nav a { margin:0 10px; white-space:nowrap; }
+    span.highlight { background:#ffffd0; }
   </style>
-  <title>cse440</title>
-  
-  <link href="css" rel="stylesheet" type="text/css">
-  <script>/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-var __webpack_exports__ = {};
+</head>
+<body>
+  <main>
+    <name>CSE 440 Introduction to Artificial Intelligence <br>(Fall 2025)</name>
 
-;// CONCATENATED MODULE: ../core/dist/flash-identifiers.js
-const FLASH_MIMETYPE = "application/x-shockwave-flash";
-const FUTURESPLASH_MIMETYPE = "application/futuresplash";
-const FLASH7_AND_8_MIMETYPE = "application/x-shockwave-flash2-preview";
-const FLASH_MOVIE_MIMETYPE = "application/vnd.adobe.flash.movie";
-const FLASH_ACTIVEX_CLASSID = "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000";
+    <p>
+      This course will focus on the fundamental issues underlying the design of intelligent systems. It covers classical AI topics including knowledge representation, reasoning, search, constraint satisfaction, application and current topics. The techniques students learn in the course will prepare you to solve real-world problems using intelligent systems. Course programming assignments will be in Python.
+    </p>
 
-;// CONCATENATED MODULE: ../core/dist/plugin-polyfill.js
+    <div class="nav">
+      <a href="cse440_25fall/CSE440Schedule.pdf">Schedule</a>
+      <a href="cse440_25fall/resources.html">Resources</a>
+      <a href="cse440_25fall/homework.html">Homework</a>
+      <a href="cse440_25fall/project.html">Project</a>
+      <a href="cse440_25fall/exam.html">Exam</a>
+    </div>
 
-/**
- * Replacement object for `MimeTypeArray` that lets us install new fake mime
- * types.
- *
- * Unlike plugins we can at least enumerate mime types in Firefox, so we don't
- * lose data.
- *
- * We also expose a method called `install` which adds a new plugin. This is
- * used to falsify Flash detection. If the existing `navigator.mimeTypes` has an
- * `install` method, you should not use `RuffleMimeTypeArray` as some other
- * plugin emulator is already present.
- */
-class RuffleMimeTypeArray {
-    constructor(mimeTypes) {
-        this.__mimeTypes = [];
-        this.__namedMimeTypes = {};
-        if (mimeTypes) {
-            for (let i = 0; i < mimeTypes.length; i++) {
-                this.install(mimeTypes[i]);
-            }
-        }
-    }
-    /**
-     * Install a MIME Type into the array.
-     *
-     * @param mimeType The mime type to install
-     */
-    install(mimeType) {
-        const index = this.__mimeTypes.length;
-        this.__mimeTypes.push(mimeType);
-        this.__namedMimeTypes[mimeType.type] = mimeType;
-        this[mimeType.type] = mimeType;
-        this[index] = mimeType;
-    }
-    item(index) {
-        // This behavior is done to emulate a 32-bit uint,
-        // which browsers use.
-        return this.__mimeTypes[index >>> 0];
-    }
-    namedItem(name) {
-        return this.__namedMimeTypes[name];
-    }
-    get length() {
-        return this.__mimeTypes.length;
-    }
-    [Symbol.iterator]() {
-        return this.__mimeTypes[Symbol.iterator]();
-    }
-}
-/**
- * Equivalent object to `Plugin` that allows us to falsify plugins.
- */
-class RufflePlugin extends RuffleMimeTypeArray {
-    constructor(name, description, filename) {
-        super();
-        this.name = name;
-        this.description = description;
-        this.filename = filename;
-    }
-}
-/**
- * Replacement object for `PluginArray` that lets us install new fake plugins.
- *
- * This object needs to wrap the native plugin array, since the user might have
- * actual plugins installed. Firefox doesn't let us enumerate the array, though,
- * which has some consequences. Namely, we can't actually perfectly wrap the
- * native plugin array, at least unless there's some secret "unresolved object
- * property name handler" that I've never known before in JS...
- *
- * We can still wrap `namedItem` perfectly at least.
- *
- * We also expose a method called `install` which adds a new plugin. This is
- * used to falsify Flash detection. If the existing `navigator.plugins` has an
- * `install` method, you should not use `RufflePluginArray` as some other plugin
- * emulator is already present.
- */
-class RufflePluginArray {
-    constructor(plugins) {
-        this.__plugins = [];
-        this.__namedPlugins = {};
-        for (let i = 0; i < plugins.length; i++) {
-            this.install(plugins[i]);
-        }
-    }
-    install(plugin) {
-        const index = this.__plugins.length;
-        this.__plugins.push(plugin);
-        this.__namedPlugins[plugin.name] = plugin;
-        this[plugin.name] = plugin;
-        this[index] = plugin;
-    }
-    item(index) {
-        // This behavior is done to emulate a 32-bit uint,
-        // which browsers use. Cloudflare's anti-bot
-        // checks rely on this.
-        return this.__plugins[index >>> 0];
-    }
-    namedItem(name) {
-        return this.__namedPlugins[name];
-    }
-    refresh() {
-        // Nothing to do, we just need to define the method.
-    }
-    [Symbol.iterator]() {
-        return this.__plugins[Symbol.iterator]();
-    }
-    get length() {
-        return this.__plugins.length;
-    }
-}
-/**
- * A fake plugin designed to trigger Flash detection scripts.
- */
-const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js");
-FLASH_PLUGIN.install({
-    type: FUTURESPLASH_MIMETYPE,
-    description: "Shockwave Flash",
-    suffixes: "spl",
-    enabledPlugin: FLASH_PLUGIN,
-});
-FLASH_PLUGIN.install({
-    type: FLASH_MIMETYPE,
-    description: "Shockwave Flash",
-    suffixes: "swf",
-    enabledPlugin: FLASH_PLUGIN,
-});
-FLASH_PLUGIN.install({
-    type: FLASH7_AND_8_MIMETYPE,
-    description: "Shockwave Flash",
-    suffixes: "swf",
-    enabledPlugin: FLASH_PLUGIN,
-});
-FLASH_PLUGIN.install({
-    type: FLASH_MOVIE_MIMETYPE,
-    description: "Shockwave Flash",
-    suffixes: "swf",
-    enabledPlugin: FLASH_PLUGIN,
-});
-/**
- * Install a fake plugin such that detectors will see it in `navigator.plugins`.
- *
- * This function takes care to check if the existing implementation of
- * `navigator.plugins` already accepts fake plugin entries. If so, it will use
- * that version of the plugin array. This allows the plugin polyfill to compose
- * across multiple plugin emulators with the first emulator's polyfill winning.
- *
- * @param plugin The plugin to install
- */
-function installPlugin(plugin) {
-    if (!("install" in navigator.plugins) || !navigator.plugins["install"]) {
-        Object.defineProperty(navigator, "plugins", {
-            value: new RufflePluginArray(navigator.plugins),
-            writable: false,
-        });
-    }
-    const plugins = navigator.plugins;
-    plugins.install(plugin);
-    if (plugin.length > 0 &&
-        (!("install" in navigator.mimeTypes) || !navigator.mimeTypes["install"])) {
-        Object.defineProperty(navigator, "mimeTypes", {
-            value: new RuffleMimeTypeArray(navigator.mimeTypes),
-            writable: false,
-        });
-    }
-    const mimeTypes = navigator.mimeTypes;
-    for (let i = 0; i < plugin.length; i += 1) {
-        mimeTypes.install(plugin[i]);
-    }
-}
+    <heading>General Information</heading>
+    <p><b>Lecture Hours:</b> Tuesday, Thursday 12:40 PM–2:00 PM (08/25/2025–12/07/2025)</p>
+    <p><b>Lecture Room:</b> Psychology Bldg 118</p>
 
-;// CONCATENATED MODULE: ./src/plugin-polyfill.ts
-// This file is compiled and then injected into content.ts's compiled form.
+    <heading>Instructors</heading>
+    <p><b><a href="https://www.egr.msu.edu/people/profile/liuhui7" target="_blank" rel="noopener">Prof. Hui Liu</a></b></p>
+    <p><b>Email:</b> liuhui7 [at] msu [dot] edu</p>
+    <p><b>Office Hours:</b> To be announced</p>
+    <p><b>Office Room:</b> Engineering Building 2142</p>
 
-installPlugin(FLASH_PLUGIN);
+    <heading>Teaching Assistant</heading>
+    <p><a href="https://songyyyy.github.io/" target="_blank" rel="noopener">Yu Song</a></p>
+    <p><b>Email:</b> songyu5 [at] msu [dot] edu</p>
+    <p><b>Office Hours:</b> Wednesday — TBA; Friday — TBA</p>
+    <p><a href="https://dsh3n77.github.io/" target="_blank" rel="noopener">Shen Dong</a></p>
+    <p><b>Email:</b> dongshe1 [at] msu [dot] edu</p>
+    <p><b>Office Hours:</b> Monday — TBA; Thursday — TBA</p>
 
-/******/ })()
-;</script><script charset="utf-8" src="chrome-extension://donbcfbmhbcapadipfkeojnmajbakjdc/dist/ruffle.js?id=95493346589"></script><script charset="utf-8" src="chrome-extension://jgphnjokjhjlcnnajmfjlacjnjkhleah/js/btype.js"></script><script type="text/javascript" charset="utf-8" src="chrome-extension://jgphnjokjhjlcnnajmfjlacjnjkhleah/js/chrome.js"></script></head>
-  <body data-new-gr-c-s-check-loaded="14.1120.0" data-gr-ext-installed="">
-  <table width="850" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-    <td>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody><tr>
-        <td width="100%" valign="middle">
-        <p align="center">
-          <name>CSE 440 Introduction to Artificial Intelligence <br/> (Fall 2025)</name>
-          <span style="display:inline-block; width: 50;"></span>
-        </p>        
-        <p>
-          This course will focus on the fundamental issues underlying the design of intelligent systems. It covers classical AI  topics including knowledge representation, reasoning, search, constraint satisfaction, application and current topics.  The techniques student learn in the course will prepare you to solve real-world problems using intelligent system. Course programming assignments will be in Python.
-        </p>
-        </td>
-      </tr>
-      </tbody></table>
-​
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody><tr>
-        <td>
-          <hr color="black">
-          <p align="center">
-          <a href="https://www.cse.msu.edu/~dongshe1/cse440_23fall/CSE440Schedule.pdf">Schedule   </a>
-          <a href="https://www.cse.msu.edu/~dongshe1/cse440_23fall/resources.html">Resources   </a>
-          <a href="https://www.cse.msu.edu/~dongshe1/cse440_23fall/homework.html">Homework   </a>
-          <a href="https://www.cse.msu.edu/~dongshe1/cse440_23fall/project.html">Project   </a>
-          <a href="https://www.cse.msu.edu/~dongshe1/cse440_23fall/exam.html">Exam</a>
-        </p>
-        <hr color="black">
-        </td>
-      </tr>
-      </tbody></table>
-​
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody>
-        <!-- <tr><td>
-          <heading><font color="#090020">Notice: Exercise 1 has been released. </font></heading>
-        </td></tr> -->
-        <tr><td>  
-          <heading><font color="#000080">General Information</font></heading>
-          <p><b>Lecture Hours:</b> Tuesday, Thursday 12:40 PM-2:00 PM (8/25/2025-12/07/2025)</p>
-          <p><b>Lecture Room:</b> Psychology Bldg 118</p>
-          <heading><font color="#000080">Instructors</font></heading>
-          <p><b><a href="https://www.egr.msu.edu/people/profile/liuhui7">Prof. Hui Liu</a></b></p>
-          <p><b>Email: </b>liuhui7 at msu dot edu</p>
-          <p><b>Office Hours:</b> To be announced</p>
-          <p><b>Office Room:</b> Engineering Building 2142</p>
+    <heading>Requisites</heading>
+    <p>(CSE 331) and (MTH 314 or ECE 280)</p>
 
-          <heading><font color="#000080">Teaching Assistant</font></heading>
-          <p><a href="https://songyyyy.github.io/"> Yu Song</a></p>
-          <p><b>Email:</b> songyu5 at msu dot edu</p>
-          <p><b>Office Hours:</b> Wednesday, To be announced.</p>
-          <p><b>Office Hours:</b> Friday, To be announced</p>
-          <p><a href="https://dsh3n77.github.io/"> Shen Dong</a></p>
-          <p><b>Email:</b> dongshe1 at msu dot edu</p>
-          <p><b>Office Hours:</b> Monday, To be announced.</p>
-          <p><b>Office Hours:</b> Thursday, To be announced</p>
-          <heading><font color="#000080">Requisites</font></heading>
-            <!-- <b>Prerequisite:</b> (CSE 331) and (STT 351 or STT 380 or STT 430 or STT 441) and MTH 314 and (MTH 234 or MTH 254H or LB 220)  -->
-            <p>(CSE 331) and (MTH 314 or ECE 280)   </p>
+    <heading>Preference Books</heading>
+    <p>Artificial Intelligence: A Modern Approach, Russell & Norvig, 3rd ed., 2010.</p>
+    <p>Machine Learning, Tom Mitchell, 1997.</p>
 
+    <heading>Course Assessment</heading>
+    <p>Homework Assignments (35%)</p>
+    <p>Projects (20%)</p>
+    <p>Midterm Exam (20%)</p>
+    <p>Final Exam (25%)</p>
+    <p>Quizzes (extra credit 5%)</p>
 
-          <heading><font color="#000080">Preference Books</font></heading>
-              <p>Artificial Intelligence: A Modern Approach, Russel and Norvig, Prentice-Hall 2010, third edition.</p>
-              <p>Machine Learning, Tom Mitchell, 1997.</p>
+    <heading>Grading Criteria</heading>
+    <p>4.0 ≥ 90%</p>
+    <p>3.5 ≥ 85%</p>
+    <p>3.0 ≥ 80%</p>
+    <p>2.5 ≥ 75%</p>
+    <p>2.0 ≥ 70%</p>
+    <p>1.5 ≥ 65%</p>
+    <p>1.0 ≥ 60%</p>
 
-          <heading><font color="#000080">Course Assessment</font></heading>
-          <p>Homework Assignments (35%)</p>
-          <p>Projects (20%)</p>
-          <p>Midterm Exam (20%)</p>
-          <p>Final Exam (25%)</p>
-          <p>Quizzes (extra credit 5%)</p>
-    
-          <heading><font color="#000080">Grading Criteria</font></heading>
-          <p>4.0,   90%+</p>
-          <p>3.5,   85%</p>
-          <p>3.0,   80%</p>
-          <p>2.5,   75%</p>
-          <p>2.0,   70%</p>
-          <p>1.5,   65%</p>
-          <p>1.0,   60%-</p>
-          <heading><font color="#000080">Course Policy</font></heading>
-          <ul>
-          <li>
-            Late submission for assignments will be deducted 50% of the grade. Assignments submitted more than one day after the deadline will not be accepted (unless you receive permission from the instructor).
-          </li>
-          <li>
-            You are encouraged to form study groups to learn the materials in class. However, all submitted assignments (including computer programs) must be your own work. If plagiarism is detected, the students involved will automatically receive a 0 for the grade and will be reported to the university.
-          </li>
-          <li>
-            The instructor reserves the right to modify the course content and class schedule during the semester.
-          </li>
-          <li>
-            Make-ups for examinations may be arranged if your absence is caused by documented illness or personal emergency. A written explanation (including supporting documentation) must be submitted to your lecture instructor; if the explanation is acceptable, an alternative to the examination will be arranged. When possible, make-up arrangements must be made in advance.
-          </li>
-          <li>
-            All students are expected to be responsible users of the computer system provided for this course. Account usage guidelines published by the Department of Computer Science and Engineering are posted at <a href="http://www.cse.msu.edu/facility/policy.php.">http://www.cse.msu.edu/facility/policy.php</a>.
-          </li>
-          <li>
-            The Department of Computer Science expects all students to adhere to MSU's policy on Integrity of Scholarship and Grades. Information about MSU policy regarding academic integrity is available at <a href="https://www.msu.edu/~ombud/academic-integrity/index.html.">https://www.msu.edu/~ombud/academic-integrity/index.html</a>.
-          </li>
-          <li>
-            Students who require accommodation under the Americans with Disabilities Act (ADA) with MSU's Resource Centers for Disabilities (RCPD) should bring their Verified Individualized Services and Accommodations (VISA) form to the instructor at the beginning of the semester as possible.
-          </li>
-          </ul>
-        </td>
-      </tr>
-      </tbody></table>
-​
-      <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-​
-      </script> <script type="text/javascript">
-      try {
-          var pageTracker = _gat._getTracker("UA-7580334-1");
-          pageTracker._trackPageview();
-          } catch(err) {}
-      </script>
-    </td>
-    </tr>
-  </tbody></table>
-  
-​
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-  div.grammarly-desktop-integration {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select:none;
-    user-select:none;
-  }
-
-  div.grammarly-desktop-integration:before {
-    content: attr(data-content);
-  }
-</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+    <heading>Course Policy</heading>
+    <ul>
+      <li>Late submission: −50% within 24 hours; later than 24 hours not accepted unless approved by the instructor.</li>
+      <li>Study groups are encouraged, but all submitted work must be your own. Plagiarism results in 0 and may be reported.</li>
+      <li>The instructor may modify course content and schedule during the semester.</li>
+      <li>Make-up exams require documented illness/personal emergency and prior arrangement when possible.</li>
+      <li>Account usage guidelines: <a href="http://www.cse.msu.edu/facility/policy.php" target="_blank" rel="noopener">CSE policy</a>.</li>
+      <li>MSU academic integrity policy: <a href="https://www.msu.edu/~ombud/academic-integrity/index.html" target="_blank" rel="noopener">link</a>.</li>
+      <li>Students needing ADA accommodations should provide VISA from RCPD to the instructor early in the semester.</li>
+    </ul>
+  </main>
+</body>
+</html>
